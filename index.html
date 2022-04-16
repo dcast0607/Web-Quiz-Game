@@ -5,10 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz - Welcome Page</title>
+    <link rel="stylesheet" href="./Assets/css/styles.css">
 </head>
 <body>
-    <header class="page-header">
-        <span>Welcome to my coding quiz game!</span>
-    </header>
+    <section class="navBar">
+        <ul class="navBarItemsContainer">
+            <li class ="navBarItems">
+               <a class="user-score" href="./user-score.html">View Highscore</a>
+            </li>
+            <li class ="navBarItems">
+                Daniel's Coding Quiz Game
+            </li>
+            <li class ="navBarItems">
+                Timer:
+            </li>
+        </ul>
+    </section>    
+    <section class="homepageWelcomeMessage">
+        <content class="welcomeTitle">Coding Quiz Challenge</content>
+        <p class="instructions">
+            Try to answer the following code-related questions within the time limit.
+            Keep in mind that incorrect answers will penalize your score/time by ten
+            seconds.
+        </p>
+    </section>
+    <section class="navButtons">
+        <button class="startButton button" type="button">Start</button>
+        <button class="nextButton button" type="button">
+            Next
+        </button>
+    </section>
+    <script src="./Assets/scripts/script.js"></script>
 </body>
 </html>

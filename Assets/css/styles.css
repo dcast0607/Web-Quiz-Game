@@ -1,0 +1,162 @@
+/*
+Styling Variables
+*/
+
+/*
+ROOT Styling Properties
+*/
+
+:root {
+    --pageBackgroundColor: white;
+    --purpleButton: rgb(188, 111, 188);
+    --quizChoiceBackgroundColor: purple;
+    --navBarColor: black;
+    --navTextColor: white;
+}
+
+* {
+    background-color: var(--pageBackgroundColor);
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/*
+Nav Bar Styling Attributes
+*/
+
+.navBar{
+    display: block;
+    width: 100vw;
+    height: 5%;
+    border: white;
+    margin-bottom: 10px;
+}
+
+ .navBarItemsContainer {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 15px 5px 15px;
+    background-color: var(--navBarColor);
+ }
+
+ .navBarItems {
+    font-weight: bold;
+    display: inline;  
+    background-color: var(--navBarColor);
+    text-align: center;
+    padding: 5px 15px 5px 15px;
+    font-size: 24px;
+    color: var(--navTextColor);
+ }
+
+ .user-score {
+     background-color: var(--navBarColor);
+     text-decoration: none;
+     color: var(--navTextColor);
+ }
+
+ .homepageNavButton {
+    background-color: var(--navBarColor);
+    text-decoration: none;
+    color: var(--navTextColor);
+}
+/*
+Body Styling Attributes
+*/
+
+.homepageWelcomeMessage {
+    width: 70%;
+    height: 200px;
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: tan;
+    margin: 10px 15% 10px 15%;
+    border-radius: 5px;
+}
+
+.welcomeTitle {
+    text-align: center;
+    font-size: 36px;
+    display: inline;
+    background-color: tan;
+    font-weight: bold;
+}
+
+.instructions {
+    display: block;
+    width: 100%;
+    background-color: tan;
+    margin: 10px;
+}
+
+.navButtons {
+    width: 70%;
+    height: 75px;
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 15% 0px 15%;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.button {
+    border-color: white;
+    background-color: black;
+    font-size: 32px;
+    color: white;
+    margin: 0px 20px 0px 20px;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/*USER SCORES PAGE----BEGINNING*/
+
+.userScoresContainer {
+    height: 400px;
+    width: 70%;
+    margin: 10px 15% 0px 15%;
+    background-color: tan;
+}
+
+.userScoresTitle {
+    background-color: tan;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 32px;
+    border: solid;
+    border-color: black;
+    border-radius: 5px;
+    width: 50%;
+    margin: 10px 25% 10px 25%;
+    position: relative;
+    top: 15px;    
+}
+
+
+.userScoresList {
+    background-color: white;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    font-size: 24px;
+    border: solid;
+    border-color: black;
+    border-radius: 5px;
+    width: 80%;
+    margin: 10px 10% 10px 10%;
+    height: 70%;
+    position: relative;
+    top: 15px;
+    text-align: left;
+}
+/*USER SCORES PAGE----END*/
