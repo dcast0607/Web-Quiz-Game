@@ -1,5 +1,5 @@
-Repository: https://github.com/dcast0607/Web-Quiz-Game
-Link to Webpage: https://dcast0607.github.io/Web-Quiz-Game/
+Repository: https://github.com/dcast0607/Web-Quiz-Game</br>
+Link to Webpage: https://dcast0607.github.io/Web-Quiz-Game/</br>
 
 Challenges: 
 - Adding user score to user local storage.
@@ -37,16 +37,16 @@ Revision 4: IN-PROGRESS
 
 - Work on the quiz logic. Logic of the user flow. 
 
-    a) What needs to happen when the user clicks on the "Start Button", we need to start the timer and take [COMPLETED]
-    the user to the quiz portion of the quiz. 
-    b) We can display a countdown timer that gives the user some time to prep mentally before starting the quiz.[COMPLETED]
-    c) When the countdown timer has finished, we then need to pick a question for our array of questions. [COMPLETED]
-    d) Based off the question that is picked, we need to set the question at the top and the available options within a container.[COMPLETED]
-    e) Questions options should be displayed as buttons so we can see what the user has picked.[COMPLETED]
-    f) When user selects the right answer we give option to move onto the next question. [COMPLETED]
-    g) When user enters wrong option, we decrease timer and automatically send the user to the next question. [Needs work]
-    h) Once user completes assessment, we need to give the user the option to save their score. [Needs work]
-    i) Scores should be visible in highscores page. [Needs work]
+    a) What needs to happen when the user clicks on the "Start Button", we need to start the timer and take [COMPLETED] 
+    the user to the quiz portion of the quiz. </br>
+    b) We can display a countdown timer that gives the user some time to prep mentally before starting the quiz.[COMPLETED]</br>
+    c) When the countdown timer has finished, we then need to pick a question for our array of questions. [COMPLETED]</br>
+    d) Based off the question that is picked, we need to set the question at the top and the available options within a container.[COMPLETED]</br>
+    e) Questions options should be displayed as buttons so we can see what the user has picked.[COMPLETED]</br>
+    f) When user selects the right answer we give option to move onto the next question. [COMPLETED]</br>
+    g) When user enters wrong option, we decrease timer and automatically send the user to the next question. [Needs work]</br>
+    h) Once user completes assessment, we need to give the user the option to save their score. [Needs work]</br>
+    i) Scores should be visible in highscores page. [Needs work]</br>
 
 
 Revision 5: Refactor and Comment

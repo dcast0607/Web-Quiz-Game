@@ -233,3 +233,12 @@ function startGame() {
 //Invoking startGame function on startButton click.
 startButton.addEventListener("click", startGame);
 
+
+function nameSubmit(event){
+    event.preventDefault();
+    var username = $("#userInfoSubmit").val().trim();
+    console.log(username);
+}
+
+$("#userInfoSubmit").submit("submit", nameSubmit);
+
