@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./Assets/css/styles.css">
 </head>
 <body>
+    <!--NAV BAR-->
     <section class="navBar">
         <ul class="navBarItemsContainer">
             <li class ="navBarItems">
@@ -20,8 +21,9 @@
                 Timer:
             </li>
         </ul>
-    </section>    
-    <section class="homepageWelcomeMessage">
+    </section>
+    <!--WELCOME MESSAGE-->
+    <section id="welcomeMessageBox" class="homepageWelcomeMessage">
         <content class="welcomeTitle">Coding Quiz Challenge</content>
         <p class="instructions">
             Try to answer the following code-related questions within the time limit.
@@ -35,9 +37,61 @@
             You will be given 20 seconds to answer each question.
         </p>
     </section>
-    <section class="navButtons">
+
+    <!--QUIZ CONTENT-->
+    <section id="quizContentBox" class="quizContentContainer hidden">
+        <section class="questionContent">
+            <section class="questionContainer">
+                <span class="questionText">
+                    Commonly used data type DO NOT include:
+                </span>
+                <section class="questionOptions">
+                    <ul class="questionsList">
+                        <li class="questionButtons">
+                            <button id="answer1" class="questionButton" type="button">
+                                strings
+                            </button>
+                        </li>
+                        <li class="questionButtons">
+                            <button id="answer2" class="questionButton" type="button">
+                                booleans
+                            </button>
+                        </li>
+                        <li class="questionButtons">
+                            <button id="answer3" class="questionButton" type="button">
+                                alerts
+                            </button>
+                        </li>
+                        <li class="questionButtons">
+                            <button id="answer4" class="questionButton" type="button">
+                                numbers 
+                            </button>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+        </section>
+    </section>
+
+    <!--COUNTDOWN TIMER - START GAME-->
+    <section id="countDownTimerBox" class="startCountdownTimer hidden">
+        <container class="countdownTimerHeader">
+            Game Will Start In: 
+
+        </container>
+        <span id="secondsLeftStart" class="secondsBeforeStart">
+            10
+        </span>
+    </section>
+
+    <!--NAVIGATION Buttons-->
+    <section id="startButtonContainer" class="navButtons">
         <button id="startButton" class="button" type="button">Start</button>
     </section>
+    <section id="nextButtonContainer" class="navButtons hidden">
+        <button id="nextButton" class="button" type="button">Next</button>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./Assets/scripts/script.js"></script>
 </body>
 </html>
