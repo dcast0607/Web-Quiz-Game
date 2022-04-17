@@ -50,3 +50,8 @@ Revision 4: IN-PROGRESS
 
 
 Revision 5: Refactor and Comment
+
+![Alt Text](./Assets/homepage.png?raw=true "Homepage Screenshot") <br />
+![Alt Text](./Assets/quizContent.png?raw=true "Homepage Screenshot") <br />
+![Alt Text](./Assets/formSubmit.png?raw=true "Homepage Screenshot") <br />
+![Alt Text](./Assets/scoresTemplate.png?raw=true "Homepage Screenshot") <br />
