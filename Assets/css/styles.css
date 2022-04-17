@@ -304,8 +304,26 @@ Body Styling Attributes
     text-align: center;
 }
 
+
+
+/*QUESTIONS PAGE ---- END*/
+
+/*Form Page */
+.playerInfoContainer {
+    width: 70%;
+    height: 200px;
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: tan;
+    margin: 10px 15% 10px 15%;
+    border-radius: 5px;
+}
+
+/*Form Page ---- END*/
+
 .hidden {
     display: none;
 }
-
-/*QUESTIONS PAGE ---- END*/

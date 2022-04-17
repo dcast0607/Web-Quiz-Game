@@ -50,6 +50,7 @@ var myQuestions = [
 //Creating global timer initial value.
 var timer = 180;
 var questionsCycled = 0;
+var globalTimerInterval;
 
 //Going to shuffle the questions so that they appear in a random order each time.
 var myShuffledQuestions;
@@ -62,7 +63,7 @@ var userScore = 0;
 function resetQuestions(){
     $("#quizQuestion").text("");
     $("#answerMessage").text("");
-    $("#answerMessage").addClass("hidden");
+    $("#answerMessageContainer").addClass("hidden");
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild)
     }
@@ -138,13 +139,12 @@ function getNextQuestion () {
     
     //Will need to reset quiz after each new question. Don't want content from previous
     //question randomly popping up.
-   // resetQuizContent();
     showQuestion(myShuffledQuestions[myCurrentQuestion]);
 }
 
 function startGameTimer() {
 
-    var globalTimerInterval = setInterval (function(){
+    globalTimerInterval = setInterval (function(){
         if (timer > 0) {
             timer--;
             $("#globalTimer").text("Timer: " + timer);
@@ -153,7 +153,7 @@ function startGameTimer() {
         if ( timer == 0 ) {
             console.log(timer);
             clearInterval(globalTimerInterval);
-        //NEED TO WORK ON THIS// endgame();
+        endgame();
         }
     }, 1000)
 }
@@ -162,9 +162,37 @@ function setQuestion () {
     questionsCycled
     myShuffledQuestions = myQuestions.sort(() => Math.random() - .5)
     myCurrentQuestion = questionsCycled;
-
-    getNextQuestion();
+    if (questionsCycled <= myShuffledQuestions.length-1 ){
+        getNextQuestion();
+    }
+    if (questionsCycled > 4) {
+        endgame();
+        console.log(questionsCycled);
+    }
     questionsCycled++;
+
+
+}
+function refreshPage () {
+    location.reload();
+}
+
+function endgame() {
+    clearInterval(globalTimerInterval);
+    $("#quizContentBox").addClass("hidden");
+    $("#playerInfo").removeClass("hidden");
+    $("#formNavButtons").removeClass("hidden");
+    $("#highscoresButton").removeClass("hidden");
+    $("#nextButtonContainer").addClass("hidden");
+
+    goBack.addEventListener("click", refreshPage);
+    highscoreButton.addEventListener("click", function() {
+        $("#playerInfo").addClass("hidden");
+        $("#formNavButtons").addClass("hidden");
+        $("#highscoresButton").addClass("hidden");
+        $("#highscoresContainer").removeClass("hidden");
+    })
+
 }
 
 //Once game is started we want to present the user with a countdown timer. The timer
@@ -172,7 +200,7 @@ function setQuestion () {
 //The first few things we are doing int his function is hiding and revealing a bunch
 //relevant containers. We are also providing a countdown before the game starts.
 //Once initial timer has finished we invoke the "getNextQuestion" function to display
-//the questions. 
+//the questions.
 function startGame() {
     $("#welcomeMessageBox").addClass("hidden");
     $("#startButton").addClass("hidden");
