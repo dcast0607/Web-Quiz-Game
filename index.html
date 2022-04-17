@@ -42,32 +42,11 @@
     <section id="quizContentBox" class="quizContentContainer hidden">
         <section class="questionContent">
             <section class="questionContainer">
-                <span class="questionText">
-                    Commonly used data type DO NOT include:
+                <span id="quizQuestion" class="questionText">
+                    <!--This is the span class that we will be using to add the question-->
                 </span>
-                <section class="questionOptions">
-                    <ul class="questionsList">
-                        <li class="questionButtons">
-                            <button id="answer1" class="questionButton" type="button">
-                                strings
-                            </button>
-                        </li>
-                        <li class="questionButtons">
-                            <button id="answer2" class="questionButton" type="button">
-                                booleans
-                            </button>
-                        </li>
-                        <li class="questionButtons">
-                            <button id="answer3" class="questionButton" type="button">
-                                alerts
-                            </button>
-                        </li>
-                        <li class="questionButtons">
-                            <button id="answer4" class="questionButton" type="button">
-                                numbers 
-                            </button>
-                        </li>
-                    </ul>
+                <section id="answerOptions" class="questionOptions">
+                    <!--This is the section where we will be populating answer options data.-->
                 </section>
             </section>
         </section>
@@ -81,6 +60,13 @@
         </container>
         <span id="secondsLeftStart" class="secondsBeforeStart">
             10
+        </span>
+    </section>
+
+    <!--Answer Message-->
+    <section id="answerMessageContainer" class="answerMessageContainer hidden">
+        <span id="answerMessage" class="answerMessageText">
+
         </span>
     </section>
 

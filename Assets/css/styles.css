@@ -278,6 +278,32 @@ Body Styling Attributes
     cursor: pointer;
 }
 
+
+.answerMessageContainer {
+    width: 70%;
+    height: 75px;
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 15% 0px 15%;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.answerMessageText {
+    width: 50%;
+    border-color: white;
+    background-color: black;
+    font-size: 32px;
+    color: white;
+    margin: 0px 20px 0px 20px;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
 .hidden {
     display: none;
 }
