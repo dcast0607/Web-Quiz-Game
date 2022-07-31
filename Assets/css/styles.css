@@ -322,6 +322,22 @@ Body Styling Attributes
     border-radius: 5px;
 }
 
+/*
+Score Board Styling
+*/
+
+td {
+    background-color: tan;
+}
+
+th {
+    background-color: tan;
+}
+
+/*
+Score Board Styling
+*/
+
 /*Form Page ---- END*/
 
 .hidden {

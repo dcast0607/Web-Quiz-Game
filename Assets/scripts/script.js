@@ -206,6 +206,10 @@ function startGame() {
     $("#startButton").addClass("hidden");
     $("#countDownTimerBox").removeClass("hidden");
     $("#startButtonContainer").addClass("hidden");
+    
+
+    var highscoresButton = $("#highscoresButton");
+    highscoresButton.disabled = true;
     var startTimer = 10;
     var startTimerInterval = setInterval (function(){
         if (startTimer > 0) {
@@ -228,6 +232,24 @@ function startGame() {
 
 }
 
+// This function will clear the unused sections of our HTML code and instead will display
+// the elements that we want to display to the en user, in this instance we want to show
+// the user the highscores table.
+function displayHighscores(e) {
+    e.preventDefault();
+    $("#welcomeMessageBox").addClass("hidden");
+    $("#startButtonContainer").addClass("hidden");
+    $("#highscoresTable").removeClass("hidden");
+    console.log("Display Highscores");
+}
+
+// When the highscores table is displayed to the user, we also render a button labeled "Home"
+// when the user clicks on this button, we reload the page and take the user back to the home
+// page. 
+function displayHome (event) {
+    event.preventDefault();
+    window.location.reload();
+}
 
 //Add Event Listener on Start Game click. This will allow the user to start the game.
 //Invoking startGame function on startButton click.
@@ -242,3 +264,14 @@ function nameSubmit(event){
 
 $("#userInfoSubmit").submit("submit", nameSubmit);
 
+// Adds an event listener for the "View Highscores" button displayed on the home page,
+// when the user clicks on this button. We will render a window that contains a list of 
+// scores. This Event Listener will call the "displayHighscores" function.
+document.getElementById("highscoresButton")
+.addEventListener("click", displayHighscores);
+
+// Adds an event listener for the "homeButton" that is displayed when the Highscores page
+// is loaded. When the use clicks on this button, this will make a call to the "displayHome"
+// function.
+document.getElementById("homeButton")
+.addEventListener("click", displayHome);
