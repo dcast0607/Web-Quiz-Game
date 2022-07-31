@@ -79,25 +79,13 @@
         <button id="nextButton" class="button" type="button">Next</button>
     </section>
 
-    <!--Highscore Form-->
-    <form id="highscoreForm" class="hidden">
-        <div class="form-row">
-            <div class="col-md-4 mb-3">
-              <label for="validationDefault01">First name</label>
-              <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
-            </div>
-            <div class="col-md-4 mb-3">
-              <label for="validationDefault02">Last name</label>
-              <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Otto" required>
-            </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+
 
     <section id="formNavButtons" class="navButtons hidden">
         <button id="goBack" class="button" type="button">Go Back</button>
     </section>
-    <section id="highscoresButton" class="navButtons hidden">
-        <button id="highscoreButton" class="button" type="button">View Highscores</button>
+    <section id="highscoresButtonContainer" class="navButtons hidden">
+        <button id="highscoresButton" class="button" type="button">View Highscores</button>
     </section>
 
     <!--Highscores Page-->
@@ -113,33 +101,27 @@
             </tr>
             </thead>
             <tbody id="highscoresTableEntry">
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>35</td> 
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>35</td> 
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>Bird</td>
-                <td>@twitter</td>
-                <td>30</td>
-            </tr>
+            <!-- This is where the scores page data will be entered-->
             </tbody>
         </table>
         <section id="homeButtonContainer" class="navButtons">
             <button id="homeButton" class="button" type="button">Home</button>
         </section>
     </section>
+
+    <!--Highscore Form-->
+    <form id="highscoreForm" class="hidden">
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault01">First name</label>
+                <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefault02">Last name</label>
+                <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Otto" required>
+            </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
     
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="./Assets/scripts/script.js"></script>

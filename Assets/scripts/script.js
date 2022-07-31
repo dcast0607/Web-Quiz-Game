@@ -1,5 +1,5 @@
 var answerButtonsElement = document.getElementById('answerOptions');
-var myQuestions = [
+const myQuestions = [
     {
         question: "Commonly used data types DO NOT include: ",
         answers: [
@@ -44,6 +44,45 @@ var myQuestions = [
             {text: "for loops", correct: false},
             {text: "console log", correct: true }
         ]
+    }
+];
+
+const seedUserData = [
+    {
+        "firstName": "Test",
+        "lastName": "User",
+        "userScore": "4",
+        "timeLeft": "30"
+    },
+    {
+        "firstName": "Test",
+        "lastName": "User2",
+        "userScore": "8",
+        "timeLeft": "60"
+    },
+    {
+        "firstName": "Test",
+        "lastName": "User3",
+        "userScore": "4",
+        "timeLeft": "120"
+    },
+    {
+        "firstName": "Test",
+        "lastName": "User4",
+        "userScore": "4",
+        "timeLeft": "90"
+    },
+    {
+        "firstName": "Test",
+        "lastName": "User5",
+        "userScore": "12",
+        "timeLeft": "125"
+    },
+    {
+        "firstName": "Test",
+        "lastName": "User6",
+        "userScore": "8",
+        "timeLeft": "80"
     }
 ];
 
@@ -159,7 +198,6 @@ function startGameTimer() {
 }
 
 function setQuestion () {
-    questionsCycled
     myShuffledQuestions = myQuestions.sort(() => Math.random() - .5)
     myCurrentQuestion = questionsCycled;
     if (questionsCycled <= myShuffledQuestions.length-1 ){
@@ -174,7 +212,7 @@ function setQuestion () {
 
 }
 function refreshPage () {
-    location.reload();
+    window.location.reload();
 }
 
 function endgame() {
@@ -202,14 +240,20 @@ function endgame() {
 //Once initial timer has finished we invoke the "getNextQuestion" function to display
 //the questions.
 function startGame() {
+    // Hides the welcomeMessageBox section
     $("#welcomeMessageBox").addClass("hidden");
+    // Makes the "countDownTimeBox" visible
+    // Hides the "startButton" section
     $("#startButton").addClass("hidden");
     $("#countDownTimerBox").removeClass("hidden");
+    // Hides the startButton section
     $("#startButtonContainer").addClass("hidden");
-    
-
-    var highscoresButton = $("#highscoresButton");
+    // Disables the highscoresButton so that the user can't
+    // click on it mid game. 
+    var highscoresButton = document.getElementById("highscoresButton");
     highscoresButton.disabled = true;
+
+    // Starts a countdown timer to prep the user for the quiz. 
     var startTimer = 10;
     var startTimerInterval = setInterval (function(){
         if (startTimer > 0) {
@@ -218,13 +262,22 @@ function startGame() {
             console.log(startTimer);
         }
 
+        // Once the timer has reached zero we display the quiz content to the user.
         if (startTimer == 0 ) {
+            // Makes the "quizContentBox" section visible
             $("#quizContentBox").removeClass("hidden");
+            // Makes the "nextButton" section visible
             $("#nextButton").removeClass("hidden");
+            // Hides the "countDownTimerBox" since it is no longer in user
             $("#countDownTimerBox").addClass("hidden");
+            // Makes the "nextButtonContainer" visible
             $("#nextButtonContainer").removeClass("hidden");
+
+            // Starts a global timer for the quiz
             startGameTimer();
+            // Clears the startTimerInterval function
             clearInterval(startTimerInterval);
+            // Starts a the game by displaying a question
             setQuestion();
         }
 
@@ -232,15 +285,70 @@ function startGame() {
 
 }
 
+
+function renderHighscoresTable() {
+    var userDataId = 0;
+    localStorageIndex = 0;
+    tableIndexId = 1;
+    // Seeding user data from JS file.
+    if (!window.localStorage.getItem('userData0')) {
+        seedUserData.forEach( function (element) {
+            window.localStorage.setItem(`userData${userDataId}`, JSON.stringify(element));
+            userDataId++;
+        })
+        console.log("Seeding Data"); 
+    }
+    var rawUserData = [];
+    var sortedUserData = [];
+
+    while (window.localStorage.getItem(`userData${localStorageIndex}`)) {
+        currentLocalStorageValue = JSON.parse(window.localStorage.getItem(`userData${localStorageIndex}`));
+        rawUserData.push(currentLocalStorageValue);
+        localStorageIndex++;
+    }
+
+    function sortByScore(sortArg) {
+        console.log("Running sort by score");
+        return function(a, b) {    
+            if (a[sortArg] > b[sortArg]) {    
+                return 1;    
+            } else if (a[sortArg] < b[sortArg]) {    
+                return -1;    
+            }    
+            return 0;    
+        } 
+    }
+
+    sortedUserData = rawUserData.sort((item1, item2) => item2.userScore - item1.userScore);
+
+    sortedUserData.forEach(function (element) {
+        arrayData = `
+        <tr>
+            <th scope="row">${tableIndexId}</th>
+            <td>${element.firstName}</td>
+            <td>${element.lastName}</td>
+            <td>${element.userScore}</td>
+            <td>${element.timeLeft}</td> 
+        </tr>
+        `
+        $("#highscoresTableEntry").append(arrayData);
+        tableIndexId++;
+    });
+};
+
 // This function will clear the unused sections of our HTML code and instead will display
 // the elements that we want to display to the en user, in this instance we want to show
 // the user the highscores table.
-function displayHighscores(e) {
-    e.preventDefault();
+function displayHighscores(event) {
+    event.preventDefault();
     $("#welcomeMessageBox").addClass("hidden");
     $("#startButtonContainer").addClass("hidden");
     $("#highscoresTable").removeClass("hidden");
-    console.log("Display Highscores");
+    var highscoresButton = document.getElementById("highscoresButton");
+    highscoresButton.disabled = true;
+    console.log("Displaying scores");
+
+    renderHighscoresTable();
 }
 
 // When the highscores table is displayed to the user, we also render a button labeled "Home"
@@ -251,17 +359,20 @@ function displayHome (event) {
     window.location.reload();
 }
 
-//Add Event Listener on Start Game click. This will allow the user to start the game.
-//Invoking startGame function on startButton click.
-startButton.addEventListener("click", startGame);
 
-
+// TODO: Fix user info form submission
 function nameSubmit(event){
     event.preventDefault();
     var username = $("#userInfoSubmit").val().trim();
     console.log(username);
 }
 
+
+//Add Event Listener on Start Game click. This will allow the user to start the game.
+//Invoking startGame function on startButton click.
+startButton.addEventListener("click", startGame);
+
+// TODO: Fix user info form submission
 $("#userInfoSubmit").submit("submit", nameSubmit);
 
 // Adds an event listener for the "View Highscores" button displayed on the home page,
